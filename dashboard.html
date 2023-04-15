@@ -1,0 +1,116 @@
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Support Ticket System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css')}}">
+</head>
+
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bxs-pyramid'></i>
+      <span class="logo_name">DashBoard</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="{{ url_for('dashboard') }}">
+          <i class='bx bx-grid-alt'></i>
+          <span class="link_name">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('create_ticket') }}">
+          <i class='bx bx-cog'></i>
+          <span class="link_name">Create Ticket</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('tickets' ) }}">
+          <i class='bx bx-compass'></i>
+          <span class="link_name">Tickets</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="{{ url_for('logout') }}">
+          <i class='bx bx-history'></i>
+          <span class="link_name">Logout</span>
+        </a>
+      </li>
+      
+      <li>
+        <div class="profile-details">
+
+          <div class="name-job">
+            <div class="profile_name">Keyur</div>
+            <div class="job">Support Assistant</div>
+          </div>
+          <i class='bx bx-log-out'></i>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <section class="home-section">
+    <div class="home-content">
+      <i class='bx bx-menu'></i>
+      <span class="text">Ticket System</span>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          {% for count in countActive%}
+          <div class="card-header ">
+            {{count.count}}
+          </div>
+          {% endfor %}
+          <div class="card-body">
+            Open Tickets
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          {% for count in countClose%}
+          <div class="card-header ">
+            {{count.count}}
+          </div>
+          {% endfor %}
+          <div class="card-body">
+            Closed Tickets
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </section>
+  <section>
+
+  </section>
+</body>
+<script type="text/javascript">
+  const arrows = document.querySelectorAll(".arrow");
+
+  arrows.forEach((arrow) => {
+    arrow.addEventListener("click", (e) => {
+      const arrowParent = e.target.closest(".arrow").parentElement.parentElement;
+      arrowParent.classList.toggle("showMenu");
+    });
+  });
+
+  const sidebar = document.querySelector(".sidebar");
+  const sidebarBtn = document.querySelector(".bx-menu");
+
+  sidebarBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("close");
+  });
+
+</script>
+
+</html>
