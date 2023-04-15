@@ -1,0 +1,170 @@
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Support Ticket System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css')}}">
+</head>
+
+<body>
+<div class="sidebar">
+    <div class="logo-details">
+        <i class='bx bxs-pyramid'></i>
+        <span class="logo_name">DashBoard</span>
+    </div>
+    <ul class="nav-links">
+        <li>
+            <a href="{{ url_for('dashboard') }}">
+                <i class='bx bx-grid-alt'></i>
+                <span class="link_name">Dashboard</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('create_ticket') }}">
+                <i class='bx bx-cog'></i>
+                <span class="link_name">Create Ticket</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('tickets' ) }}">
+                <i class='bx bx-compass'></i>
+                <span class="link_name">Tickets</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('logout') }}">
+                <i class='bx bx-history'></i>
+                <span class="link_name">Logout</span>
+            </a>
+        </li>
+
+        <li>
+            <div class="profile-details">
+                <div class="name-job">
+                    {% if username %}
+                    <div class="profile_name">{{username}}</div>
+                    {% endif %}
+                </div>
+                <a href="{{ url_for('logout') }}"> <i class='bx bx-log-out'></i></a>
+            </div>
+        </li>
+    </ul>
+</div>
+<section class="home-section">
+    <div class="home-content">
+        <i class='bx bx-menu'></i>
+        <span class="text">Ticket System</span>
+    </div>
+
+    <div class="row" style="width:inherit;">
+        <div id="filter_table"></div>
+
+        <table id="example" class="table table-striped table-bordered dataTable" cellspacing="0" width="100%"
+               role="grid" aria-describedby="example_info" style="width: 100%;">
+            <thead>
+            <tr role="row">
+                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
+                    aria-label="Name: activate to sort column ascending" style="width: 120px;">Name
+                </th>
+                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
+                    aria-label="Position: activate to sort column ascending" style="width: 105px;">Phone
+                </th>
+                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
+                    aria-label="Office: activate to sort column ascending" style="width: 105px;">Ticket Title
+                </th>
+                <th class="sorting_desc" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
+                    aria-label="Age: activate to sort column ascending" aria-sort="descending" style="width: 44px;">
+                    Status
+                </th>
+                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
+                    aria-label="Start date: activate to sort column ascending" style="width: 105px;">Date
+                </th>
+                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
+                    aria-label="Start date: activate to sort column ascending" style="width: 93px;">Action
+                </th>
+
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for ticket in ticketDetails %}
+            <tr role="row" class="odd">
+                <td class="">{{ticket.customer_name}}</td>
+                <td>{{ticket.customer_phone}}</td>
+                <td>{{ticket.title}}</td>
+                <td class="sorting_1">{{ticket.status}}</td>
+                <td>{{ticket.createdAt }}</td>
+                <td><a href="{{ url_for('tickets',ticketId=ticket.id) }}">View</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</section>
+<section>
+
+</section>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+<script type="text/javascript">
+  const arrows = document.querySelectorAll(".arrow");
+
+  arrows.forEach((arrow) => {
+    arrow.addEventListener("click", (e) => {
+      const arrowParent = e.target.closest(".arrow").parentElement.parentElement;
+      arrowParent.classList.toggle("showMenu");
+    });
+  });
+
+  const sidebar = document.querySelector(".sidebar");
+  const sidebarBtn = document.querySelector(".bx-menu");
+
+  sidebarBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("close");
+  });
+
+
+  $(function () {
+    $('#example').dataTable({
+      paging: true,
+      fixedHeader: {
+        header: true
+      },
+      dom: 'Bfrtip',
+         "ordering": false,
+        initComplete: function () {
+            this.api().columns([1,3,4]).every( function (d) {//THis is used for specific column
+              var column = this;
+              var theadname = $('#example th').eq([d]).text();
+              var select = $('<select class="mx-1 form-control"><option value="">'+theadname+': All</option></select>')
+              .appendTo( '#filter_table' )
+              .on( 'change', function () {
+                var val = $.fn.dataTable.util.escapeRegex(
+                  $(this).val()
+                  );
+
+                column
+                .search( val ? '^'+val+'$' : '', true, false )
+                .draw();
+              } );
+              column.data().unique().sort().each( function ( d, j ) {
+                var val = $('<div/>').html(d).text();
+                select.append( '<option value="'+val+'">'+val+'</option>' )
+              } );
+            } );
+          }
+    });
+  });
+
+</script>
+
+</html>
