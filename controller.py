@@ -119,4 +119,61 @@ class createTicket(Resource):
                 return make_response(render_template('login.html'))
         except Exception as e:
             print(e)
-           
+            
+          
+def post(self):
+        try:
+            if 'loggedin' in session:
+                username = session['username']
+                if 'id' in request.form:
+                    id = request.form['id']
+                    description = request.form['description']
+                    status = request.form['status']
+                    print(status)
+                    if status == 'Closed':
+                        isActive = 0
+                    else:
+                        isActive = 1
+                    conn = mysql.connect()
+                    cur = conn.cursor(pymysql.cursors.DictCursor)
+                    cur.execute("update tickets set status=%s,\
+                                isActive=%s where id= %s",
+                                (status, isActive, (int(id))))
+                    cur.execute("insert into ticket_history (ticket_id,remark,status,updatedBy) values (%s ,%s,%s,%s)", \
+                                (id, description, status, session['username']))
+                    conn.commit()
+                    cur.close()
+                    print("values are updated")
+                    return redirect(url_for('tickets', ticketId=id, username=username))
+                else:
+                    print("POST")
+                    title = request.form['title']
+                    description = request.form['description']
+                    customer_name = request.form['customer_name']
+                    customer_phone = request.form['customer_phone']
+                    customer_email = request.form['customer_email']
+                    status = 'New'
+                    isActive = 1
+                    try:
+                        conn = mysql.connect()
+                        cur = conn.cursor(pymysql.cursors.DictCursor)
+                        cur.execute(
+                            "insert into tickets (title,description,customer_name,customer_phone,customer_email,status,isActive) values (%s ,%s,%s,%s,%s,%s,%s)", \
+                            (title, description, customer_name, customer_phone, customer_email, status, isActive))
+                        last_row = cur.lastrowid
+                        cur.execute("select * from tickets where id = %s", (last_row))
+                        print(cur.fetchone())
+                        cur.execute(
+                            "insert into ticket_history (ticket_id,remark,status,updatedBy) values (%s ,%s,%s,%s)", \
+                            (last_row, description, status, customer_name))
+                        conn.commit()
+                        cur.close()
+                    except Exception as e:
+                        print(e)
+                    message = "New Ticket Added"
+                    return redirect(url_for('dashboard', username=username))
+            else:
+                message = 'User not login'
+                return make_response(render_template('login.html'))
+        except Exception as e:
+            print(e)
