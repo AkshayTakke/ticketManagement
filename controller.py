@@ -120,3 +120,25 @@ class createTicket(Resource):
         except Exception as e:
             print(e)
            
+
+    def delete(self):
+        try:
+            message='redirect to tickets'
+            if 'loggedin' in session:
+                username = session['username']
+                print(request.form)
+                id = request.form['id']
+                conn = mysql.connect()
+                cur = conn.cursor(pymysql.cursors.DictCursor)
+                cur.execute("delete from tickets where id = %s",(int(id)))
+                cur.execute("delete from ticket_history where ticket_id = %s",(int(id)))
+                conn.commit()
+                cur.close()
+                print("values are inserted")
+                message = "Ticket deleted"
+                return True
+            else:
+                message = 'User not login'
+                return False
+        except Exception as e:
+            print(e)        
