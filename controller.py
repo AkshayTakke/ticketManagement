@@ -77,3 +77,46 @@ class createTicket(Resource):
                 return make_response(render_template('login.html'))
         except Exception as e:
             print(e)            
+
+ class tickets(Resource):
+    def get(self):
+        try:
+            message = 'redirect to tickets'
+            username = session['username']
+            if 'loggedin' in session:
+                conn = mysql.connect()
+                cur = conn.cursor(pymysql.cursors.DictCursor)
+                if request.args.get('ticketId'):
+                    try:
+                        ticketId = request.args.get('ticketId')
+                        cur.execute("select * from tickets where id = %s", (ticketId))
+                        ticketwithId = cur.fetchone()
+                        if ticketwithId:
+                            message = "Fetch ticket with ticketId =" + ticketId
+                            cur.execute("select * from ticket_history where ticket_id = %s order by createdAt desc ",
+                                        (ticketId))
+                            ticketHis = cur.fetchall()
+                            cur.close()
+                            print(ticketHis)
+                            return make_response(
+                                render_template('ticket-view.html', ticketDetails=ticketwithId, ticketHistory=ticketHis,
+                                                username=username))
+                        else:
+                            message = "TicketId not found"
+                            return make_response(
+                                render_template('ticket-view.html', ticketDetails=ticketwithId, username=username))
+                        print(ticketwithId)
+                    except Exception as e:
+                        print(e)
+                else:
+                    cur.execute("select * from tickets")
+                    tickets = cur.fetchall()
+                    cur.close()
+                    message = "Fetch All Tickets"
+                    return make_response(render_template('ticket-list.html', ticketDetails=tickets, username=username))
+            else:
+                message = 'User not login'
+                return make_response(render_template('login.html'))
+        except Exception as e:
+            print(e)
+           
