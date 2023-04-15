@@ -57,3 +57,12 @@ class loginAPI(Resource):
                 return make_response(render_template('login.html'))
         except Exception as e:
             print(e)
+           
+class logout(Resource):
+    def get(self):
+        try:
+            session.pop('loggedin',None)
+            session.pop('username',None)
+            return redirect(url_for('login'))
+        except Exception as e:
+            print(e)
