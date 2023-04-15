@@ -66,3 +66,14 @@ class logout(Resource):
             return redirect(url_for('login'))
         except Exception as e:
             print(e)
+            
+            
+class createTicket(Resource):
+    def get(self):
+        try:
+            if 'loggedin' in session:
+                return make_response(render_template('ticket.html'))
+            else:
+                return make_response(render_template('login.html'))
+        except Exception as e:
+            print(e)            
