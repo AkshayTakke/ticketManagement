@@ -48,10 +48,11 @@
         <div class="profile-details">
 
           <div class="name-job">
-            <div class="profile_name">Keyur</div>
-            <div class="job">Support Assistant</div>
+            {% if username %}
+            <div class="profile_name">{{username}}</div>
+            {% endif %}
           </div>
-          <i class='bx bx-log-out'></i>
+          <a href="{{ url_for('logout') }}"> <i class='bx bx-log-out'></i></a>
         </div>
       </li>
     </ul>
