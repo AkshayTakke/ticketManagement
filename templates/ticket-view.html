@@ -1,0 +1,188 @@
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Support Ticket System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css')}}">
+</head>
+
+<body>
+<div class="sidebar">
+    <div class="logo-details">
+        <i class='bx bxs-pyramid'></i>
+        <span class="logo_name">DashBoard</span>
+    </div>
+    <ul class="nav-links">
+        <li>
+            <a href="{{ url_for('dashboard') }}">
+                <i class='bx bx-grid-alt'></i>
+                <span class="link_name">Dashboard</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('create_ticket') }}">
+                <i class='bx bx-cog'></i>
+                <span class="link_name">Create Ticket</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('tickets' ) }}">
+                <i class='bx bx-compass'></i>
+                <span class="link_name">Tickets</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('logout') }}">
+                <i class='bx bx-history'></i>
+                <span class="link_name">Logout</span>
+            </a>
+        </li>
+
+        <li>
+            <div class="profile-details">
+                <div class="name-job">
+                    {% if username %}
+                    <div class="profile_name">{{username}}</div>
+                    {% endif %}
+                </div>
+                <a href="{{ url_for('logout') }}"> <i class='bx bx-log-out'></i></a>
+            </div>
+        </li>
+    </ul>
+</div>
+<section class="home-section">
+    <div class="home-content">
+        <i class='bx bx-menu'></i>
+        <span class="text">Ticket System</span>
+    </div>
+
+    <div class="row" style="width:inherit;">
+        <div class="col-md-12">
+            {% if ticketDetails%}
+            <div class="card">
+                <div class="card-header">
+                    {{ticketDetails.title}}
+                    <button type="button" class="btn btn-transparent">
+                        <span class="badge bg-success">{{ticketDetails.status}}</span>
+                    </button>
+                </div>
+            </div>
+            {% endif %}
+            <div class="card-body">
+                <h4>Ticket Description</h4>
+                {% if ticketDetails%}
+                <p>{{ticketDetails.description}}</p>
+                {% endif %}
+                <br>
+                <hr>
+                <br>
+                <button type="button" class="btn btn-primary" onclick="showDiv()" style="margin-bottom: 20px;">Add
+                    Ticket Update
+                </button>
+                {% if ticketDetails%}
+                <button type="button" class="btn btn-primary" onclick="deleteTicket('{{ticketDetails.id}}')"
+                        style="margin-bottom: 20px;">Delete Ticket
+                </button>
+                {% endif %}
+                <div id="welcomeDiv" style="display:none;" class="answer_list">
+                    <form method="POST" action="/tickets">
+                        <br>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <label>Enter Ticket Description</label>
+                                <textarea name="description" placeholder="" rows="4" class="form-control"></textarea>
+                            </div>
+                            {% if ticketDetails%}
+                            <input type="hidden" name="id" value={{ticketDetails.id}}>
+                            {% endif %}
+                            <input type="hidden" name="_method" value="PUT">
+                            <div class="col-md-4">
+                                <label>Select Ticket Status</label>
+                                <select class="form-control" name="status">
+                                    <option>In Review</option>
+                                    <option>In Process</option>
+                                    <option>Pending</option>
+                                    <option>Resolved</option>
+                                    <option>Closed</option>
+                                </select>
+                                <br>
+                                <input type="submit" name="" value="Submit" class="btn btn-primary">
+                            </div>
+                        </div>
+                    </form>
+                    <br>
+                </div>
+                <h4>Ticket History</h4>
+                <div class="ticket-history">
+                    {% for ticket_his in ticketHistory%}
+                    <div class="card">
+                        {% if ticket_his.status == 'New'%}
+                        <span class="badge bg-danger">{{ticket_his.status}}</span>
+                        {% elif ticket_his.status == 'Closed' %}
+                        <span class="badge bg-success">{{ticket_his.status}}</span>
+                        {% else %}
+                        <span class="badge bg-primary">{{ticket_his.status}}</span>
+                        {% endif %}
+                        <div class="container">
+                            <p>{{ticket_his.remark}}</p>
+                            <span>Updated at {{ticket_his.createdAt}}</span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<section>
+
+</section>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    const arrows = document.querySelectorAll(".arrow");
+
+    arrows.forEach((arrow) => {
+        arrow.addEventListener("click", (e) => {
+            const arrowParent = e.target.closest(".arrow").parentElement.parentElement;
+            arrowParent.classList.toggle("showMenu");
+        });
+    });
+
+    const sidebar = document.querySelector(".sidebar");
+    const sidebarBtn = document.querySelector(".bx-menu");
+
+    sidebarBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("close");
+    });
+
+    function showDiv() {
+        document.getElementById('welcomeDiv').style.display = "block";
+    }
+
+    function deleteTicket(id) {
+        if (confirm("Are you sure want to delete ticket?")) {
+            const formData = new FormData();
+            formData.append('id', id);
+
+            fetch('/tickets', {
+                method: 'DELETE',
+                body: formData
+            }).then(response => response.json())
+            window.location.href = "{{ url_for('tickets') }}"
+        }
+
+    }
+
+
+</script>
+
+</html>
