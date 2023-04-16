@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tickets` (
   `id` int(10) NOT NULL,
-  `title` varchar(25) NOT NULL,
-  `description` varchar(100) NOT NULL,
+  `title` varchar(225) NOT NULL,
+  `description` varchar(500) NOT NULL,
   `customer_name` varchar(25) NOT NULL,
   `customer_phone` varchar(15) NOT NULL,
   `customer_email` varchar(25) NOT NULL,
