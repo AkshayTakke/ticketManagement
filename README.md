@@ -59,7 +59,7 @@ Run the following command to start the server:</p>
 
 <p>At a high level, it typically includes:</p>
 
-<h3>In Scope:</h3>
+<h3>In-Scope:</h3>
 
 <p>1. Issue tracking: This is the system's fundamental capability. It helps groups keep tabs on problems, divide them up among members, give priority, and monitor development.</p>
 
@@ -67,7 +67,7 @@ Run the following command to start the server:</p>
 
 <p>3. User experience: New users will be able to pick up the system quickly and easily.</p>
 
-<h3>Out Scope:</h3>
+<h3>Out-Scope:</h3>
 
 <p>1. Workflow management: Features for managing workflows, such as the ability to set up notifications and reports, may be available in the system.</p>
 
