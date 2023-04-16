@@ -4,6 +4,9 @@
 
 <p>This is a web-based IT ticket management system built using Python Flask framework as the backend, HTML, CSS, and JavaScript/jQuery as the frontend, and MySQL as the database. This system is designed to help IT teams manage and track IT issues reported by users.</p>
 
+<h2>GitHub</h2>
+<a>https://github.com/AkshayTakke/ticketManagement</a>
+
 <h2>Requirements</h2>
 
 <h3>To run this system, you will need the following:</h3>
