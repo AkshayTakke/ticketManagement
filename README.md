@@ -9,7 +9,9 @@
 <h3>To run this system, you will need the following:</h3>
 
 <p>Python 3.6 or higher
-Flask 1.1.2 or higher
+Flask 2.2.3 or higher
+Flask_restful 0.3.9
+Flask-mysql 1.5.2
 MySQL 5.7 or higher
 HTML, CSS, and JavaScript-enabled web browser</p>
 
@@ -17,7 +19,7 @@ HTML, CSS, and JavaScript-enabled web browser</p>
 
 <p>Clone this repository to your local machine.
 Install Python 3.6 or higher on your machine.
-Install Flask 1.1.2 or higher by running the following command in your terminal:</p>
+Install Flask 2.2.3 or higher by running the following command in your terminal:</p>
 <p>1. Open bash</p>
 <p>2. Copy code written below</p>
 <p>3. pip install Flask</p>
