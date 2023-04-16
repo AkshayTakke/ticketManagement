@@ -94,4 +94,4 @@ Run the following command to start the server:</p>
 
 <p>8. User experience: New users should be able to pick up the system quickly and easily.</p>
 
-<p>In conclusion, a powerful tool for organising projects and monitoring progress is a ticket management system like PRIESTO. Business needs including problem tracking, workflow management, customization, integration, reporting, security, and user experience can span a wide range of implementation details.</p>
+<p>In conclusion, a powerful tool for organising projects and monitoring progress is a ticket management system like PRISTO. Business needs including problem tracking, workflow management, customization, integration, reporting, security, and user experience can span a wide range of implementation details.</p>
