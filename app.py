@@ -3,6 +3,7 @@ from main import app
 
 from api import routes
 
+# Create Restful API for Flask App
 api = Api(app)
 
 routes(api)

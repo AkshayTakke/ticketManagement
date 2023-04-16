@@ -4,11 +4,13 @@ from flask_restful import Resource
 import pymysql, sys
 
 
+# HomePage Class to redirect to Homepage/Login Page
 class homePage(Resource):
     def get(self):
         return redirect(url_for('login'))
 
 
+# Dashboard Class used to display All tickets or if not logged in then redirect to Login page
 class dashboard(Resource):
     def get(self):
         if 'loggedin' in session:
@@ -26,6 +28,7 @@ class dashboard(Resource):
             return make_response(render_template('login.html'))
 
 
+# LoginApi Class used to authenticate user if username and password is correct
 class loginAPI(Resource):
     def post(self):
         try:
@@ -61,6 +64,7 @@ class loginAPI(Resource):
             print(e)
 
 
+# logout Class used to log out user which currently logged in
 class logout(Resource):
     def get(self):
         try:
@@ -71,6 +75,7 @@ class logout(Resource):
             print(e)
 
 
+# CreateTicket Class used for to create new Ticket or if not logged in then redirect to Login page
 class createTicket(Resource):
     def get(self):
         try:
@@ -82,7 +87,10 @@ class createTicket(Resource):
             print(e)
 
 
+# tickets Class is used to perform CRUD operation using different methods
 class tickets(Resource):
+    # Get method used to retrieve All tickets from Database or if parameter 'ticketId' is given then it retrieve details
+    # of particular ticket
     def get(self):
         try:
             message = 'redirect to tickets'
@@ -125,6 +133,7 @@ class tickets(Resource):
             print(e)
 
 
+# Post method is used to Create a new ticket or Edit existing ticket
 def post(self):
     try:
         if 'loggedin' in session:
@@ -183,6 +192,7 @@ def post(self):
         print(e)
 
 
+# Delete method is used to delete tickets permanently from database
 def delete(self):
     try:
         message = 'redirect to tickets'

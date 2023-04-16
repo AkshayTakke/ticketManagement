@@ -1,6 +1,7 @@
 from flaskext.mysql import MySQL
 from main import app
 
+# Create config to connect MYSQL database with credentials
 mysql = MySQL()
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 app.config['MYSQL_DATABASE_USER'] = 'root'

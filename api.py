@@ -1,6 +1,7 @@
 from controller import loginAPI, logout, homePage, tickets, createTicket, dashboard
 
 
+# Define Routes for ALL APIs
 def routes(api):
     api.add_resource(loginAPI, '/login', endpoint='login')
     api.add_resource(logout, '/logout')
