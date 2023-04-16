@@ -55,7 +55,7 @@ Run the following command to start the server:</p>
 
 <p>A ticket management system, such as PRISTO, is designed to assist businesses in managing their initiatives and monitoring their progress. Teams can use this application to monitor tasks, defects, and other issues, as well as to coordinate their efforts and share information.</p>
 
-<p>Depending on the requirements of the business, a ticket management system like JIRA might have a wide range of functionality.</p>
+<p>Depending on the requirements of the business, a ticket management system like PRISTO might have a wide range of functionality.</p>
 
 <p>At a high level, it typically includes:</p>
 
@@ -73,7 +73,7 @@ Run the following command to start the server:</p>
 
 <p>2. Integration: Source control, testing tools, and customer service software are only some examples of additional systems and technologies that the system must be compatible with.</p>
 
-<p>3. Customization: A ticket management system, such as JIRA, is designed to assist businesses in managing their initiatives and monitoring their progress. Teams can use this application to monitor tasks, defects, and other issues, as well as to coordinate their efforts and share information.</p>
+<p>3. Customization: A ticket management system, such as PRISTO, is designed to assist businesses in managing their initiatives and monitoring their progress. Teams can use this application to monitor tasks, defects, and other issues, as well as to coordinate their efforts and share information.</p>
 
 
 <h2>Business Requirements</h2>
@@ -94,4 +94,4 @@ Run the following command to start the server:</p>
 
 <p>8. User experience: New users should be able to pick up the system quickly and easily.</p>
 
-<p>In conclusion, a powerful tool for organising projects and monitoring progress is a ticket management system like JIRA. Business needs including problem tracking, workflow management, customization, integration, reporting, security, and user experience can span a wide range of implementation details.</p>
+<p>In conclusion, a powerful tool for organising projects and monitoring progress is a ticket management system like PRIESTO. Business needs including problem tracking, workflow management, customization, integration, reporting, security, and user experience can span a wide range of implementation details.</p>
