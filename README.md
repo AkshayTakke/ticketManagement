@@ -102,7 +102,7 @@ Run the following command to start the server:</p>
 
 <h3>Ved Khetle (10637125)</h3>
 
-<p>Ved is a skilled front-end developer and has worked on the ticket.html and dashboard.html pages. He has implemented the class dashboard in controller.py to handle the back-end functionalities of the dashboard page. Additionally, Ved has contributed to the back-end of the project by adding the dashboard endpoint to api.py. Ved has also contributed to the project by helping Akshay create the README.md file. He has provided valuable inputs on the setup and installation steps, ensuring that the document is user-friendly and easy to understand. Furthermore, Ved has helped to clean up the codebase, ensuring that the code is well-organized, easy to read, and maintainable.</p>
+<p>Ved has worked on the ticket.html and dashboard.html pages. He has implemented the class dashboard in controller.py to handle the back-end functionalities of the dashboard page. Additionally, Ved has contributed to the back-end of the project by adding the dashboard endpoint to api.py and added createTicket class used for to create new Ticket or if not logged in then redirect to Login page. Ved has also contributed to the project by helping Akshay create the README.md file. He has provided valuable inputs on the setup and installation steps, ensuring that the document is user-friendly and easy to understand. Furthermore, Ved has helped to clean up the codebase, ensuring that the code is well-organized, easy to read, and maintainable.</p>
 
 <h3>Ujwala Kabadi (10623727)</h3>
 
@@ -110,7 +110,7 @@ Run the following command to start the server:</p>
 
 <h3>Keyur Prajapati (10637122)</h3>
 
-<p>Keyur is an experienced developer and has contributed to the project by working on the login and logout APIs from the front-end that is login.html and the back-end in controller.py. He has ensured the authentication and authorization of users by implementing secure APIs. Furthermore, Keyur has contributed to the front-end development of the project by working on the CSS to improve the visual design and user experience. He has implemented various CSS styles and classes to improve the overall look and feel of the project.</p>
+<p>Keyur has contributed to the project by working on the login and logout APIs from the front-end that is login.html and the back-end in controller.py. He has ensured the authentication and authorization of users by implementing secure APIs. Furthermore, Keyur has contributed to the front-end development of the project by working on the CSS in style.css to improve the visual design and user experience. He has implemented various CSS styles and classes to improve the overall look and feel of the project.</p>
 
 <h3>Akshay Takke (10623725)</h3>
 
