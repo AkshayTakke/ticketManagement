@@ -45,6 +45,7 @@ Run the following command to start the server:</p>
 <p>2. Ticket creation and assignment</p>
 <p>3. Ticket tracking and updates</p>
 <p>4. Commenting and discussion on tickets</p>
-<p>5. Ticket priority and status management</p>
-<p>6. Search and filter tickets by keywords, priority, status, and date</p>
-<p>7. Dashboard with ticket statistics and charts</p>
+<p>5. Ticket status management</p>
+<p>6. Search and filter tickets by keywords, status and date</p>
+<p>7. Dashboard with tickets</p>
+
