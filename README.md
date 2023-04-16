@@ -51,3 +51,47 @@ Run the following command to start the server:</p>
 <p>6. Search and filter tickets by keywords, status and date</p>
 <p>7. Dashboard with tickets</p>
 
+<h2>Scope</h2>
+
+<p>A ticket management system, such as PRISTO, is designed to assist businesses in managing their initiatives and monitoring their progress. Teams can use this application to monitor tasks, defects, and other issues, as well as to coordinate their efforts and share information.</p>
+
+<p>Depending on the requirements of the business, a ticket management system like JIRA might have a wide range of functionality.</p>
+
+<p>At a high level, it typically includes:</p>
+
+<h3>In Scope:</h3>
+
+<p>1. Issue tracking: This is the system's fundamental capability. It helps groups keep tabs on problems, divide them up among members, give priority, and monitor development.</p>
+
+<p>2. Project management: Ticket management systems include project management capabilities, such as the ability to establish and manage project schedules, assign tasks to team members, and monitor progress.</p>
+
+<p>3. User experience: New users will be able to pick up the system quickly and easily.</p>
+
+<h3>Out Scope:</h3>
+
+<p>1. Workflow management: Features for managing workflows, such as the ability to set up notifications and reports, may be available in the system.</p>
+
+<p>2. Integration: Source control, testing tools, and customer service software are only some examples of additional systems and technologies that the system must be compatible with.</p>
+
+<p>3. Customization: A ticket management system, such as JIRA, is designed to assist businesses in managing their initiatives and monitoring their progress. Teams can use this application to monitor tasks, defects, and other issues, as well as to coordinate their efforts and share information.</p>
+
+
+<h2>Business Requirements</h2>
+
+<p>1. The business requirements for a ticket management system like PRISTO typically include:</p>
+
+<p>2. Issue tracking: The system must be able to track issues and bugs and provide a centralized view of all open issues.</p>
+
+<p>3. Workflow management: The system must support the organization's existing workflows and be flexible enough to adapt to changes.</p>
+
+<p>4. Customization: The system must be customizable to meet the organization's unique needs.</p>
+
+<p>5. Integration: Source control, testing tools, and customer service software are only some examples of additional systems and technologies that the system must be compatible with.</p>
+
+<p>6. Reporting: The system must be able to generate reports and provide visibility into the progress of projects and issues.</p>
+
+<p>7. Security: The system needs to be safe and prevent hackers from accessing private information.</p>
+
+<p>8. User experience: New users should be able to pick up the system quickly and easily.</p>
+
+<p>In conclusion, a powerful tool for organising projects and monitoring progress is a ticket management system like JIRA. Business needs including problem tracking, workflow management, customization, integration, reporting, security, and user experience can span a wide range of implementation details.</p>
