@@ -3,9 +3,7 @@ from main import app
 
 from api import routes
 
-#app = Flask(__name__)
 api = Api(app)
-#mysql = DBConfig.config(app)
 
 routes(api)
 

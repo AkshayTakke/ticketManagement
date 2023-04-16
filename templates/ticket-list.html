@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
 
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
 </head>
 
 <body>
@@ -47,7 +47,7 @@
             <div class="profile-details">
                 <div class="name-job">
                     {% if username %}
-                    <div class="profile_name">{{username}}</div>
+                        <div class="profile_name">{{ username }}</div>
                     {% endif %}
                 </div>
                 <a href="{{ url_for('logout') }}"> <i class='bx bx-log-out'></i></a>
@@ -93,14 +93,14 @@
             <tbody>
 
             {% for ticket in ticketDetails %}
-            <tr role="row" class="odd">
-                <td class="">{{ticket.customer_name}}</td>
-                <td>{{ticket.customer_phone}}</td>
-                <td>{{ticket.title}}</td>
-                <td class="sorting_1">{{ticket.status}}</td>
-                <td>{{ticket.createdAt }}</td>
-                <td><a href="{{ url_for('tickets',ticketId=ticket.id) }}">View</a></td>
-            </tr>
+                <tr role="row" class="odd">
+                    <td class="">{{ ticket.customer_name }}</td>
+                    <td>{{ ticket.customer_phone }}</td>
+                    <td>{{ ticket.title }}</td>
+                    <td class="sorting_1">{{ ticket.status }}</td>
+                    <td>{{ ticket.createdAt }}</td>
+                    <td><a href="{{ url_for('tickets',ticketId=ticket.id) }}">View</a></td>
+                </tr>
             {% endfor %}
             </tbody>
         </table>
@@ -116,54 +116,54 @@
 <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
 <script type="text/javascript">
-  const arrows = document.querySelectorAll(".arrow");
+    const arrows = document.querySelectorAll(".arrow");
 
-  arrows.forEach((arrow) => {
-    arrow.addEventListener("click", (e) => {
-      const arrowParent = e.target.closest(".arrow").parentElement.parentElement;
-      arrowParent.classList.toggle("showMenu");
+    arrows.forEach((arrow) => {
+        arrow.addEventListener("click", (e) => {
+            const arrowParent = e.target.closest(".arrow").parentElement.parentElement;
+            arrowParent.classList.toggle("showMenu");
+        });
     });
-  });
 
-  const sidebar = document.querySelector(".sidebar");
-  const sidebarBtn = document.querySelector(".bx-menu");
+    const sidebar = document.querySelector(".sidebar");
+    const sidebarBtn = document.querySelector(".bx-menu");
 
-  sidebarBtn.addEventListener("click", () => {
-    sidebar.classList.toggle("close");
-  });
-
-
-  $(function () {
-    $('#example').dataTable({
-      paging: true,
-      fixedHeader: {
-        header: true
-      },
-      dom: 'Bfrtip',
-         "ordering": false,
-        initComplete: function () {
-            this.api().columns([1,3,4]).every( function (d) {//THis is used for specific column
-              var column = this;
-              var theadname = $('#example th').eq([d]).text();
-              var select = $('<select class="mx-1 form-control"><option value="">'+theadname+': All</option></select>')
-              .appendTo( '#filter_table' )
-              .on( 'change', function () {
-                var val = $.fn.dataTable.util.escapeRegex(
-                  $(this).val()
-                  );
-
-                column
-                .search( val ? '^'+val+'$' : '', true, false )
-                .draw();
-              } );
-              column.data().unique().sort().each( function ( d, j ) {
-                var val = $('<div/>').html(d).text();
-                select.append( '<option value="'+val+'">'+val+'</option>' )
-              } );
-            } );
-          }
+    sidebarBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("close");
     });
-  });
+
+
+    $(function () {
+        $('#example').dataTable({
+            paging: true,
+            fixedHeader: {
+                header: true
+            },
+            dom: 'Bfrtip',
+            "ordering": false,
+            initComplete: function () {
+                this.api().columns([1, 3, 4]).every(function (d) {//THis is used for specific column
+                    var column = this;
+                    var theadname = $('#example th').eq([d]).text();
+                    var select = $('<select class="mx-1 form-control"><option value="">' + theadname + ': All</option></select>')
+                        .appendTo('#filter_table')
+                        .on('change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex(
+                                $(this).val()
+                            );
+
+                            column
+                                .search(val ? '^' + val + '$' : '', true, false)
+                                .draw();
+                        });
+                    column.data().unique().sort().each(function (d, j) {
+                        var val = $('<div/>').html(d).text();
+                        select.append('<option value="' + val + '">' + val + '</option>')
+                    });
+                });
+            }
+        });
+    });
 
 </script>
 

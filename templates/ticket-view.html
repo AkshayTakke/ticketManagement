@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
 
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
 </head>
 
 <body>
@@ -48,7 +48,7 @@
             <div class="profile-details">
                 <div class="name-job">
                     {% if username %}
-                    <div class="profile_name">{{username}}</div>
+                        <div class="profile_name">{{ username }}</div>
                     {% endif %}
                 </div>
                 <a href="{{ url_for('logout') }}"> <i class='bx bx-log-out'></i></a>
@@ -64,20 +64,20 @@
 
     <div class="row" style="width:inherit;">
         <div class="col-md-12">
-            {% if ticketDetails%}
-            <div class="card">
-                <div class="card-header">
-                    {{ticketDetails.title}}
-                    <button type="button" class="btn btn-transparent">
-                        <span class="badge bg-success">{{ticketDetails.status}}</span>
-                    </button>
+            {% if ticketDetails %}
+                <div class="card">
+                    <div class="card-header">
+                        {{ ticketDetails.title }}
+                        <button type="button" class="btn btn-transparent">
+                            <span class="badge bg-success">{{ ticketDetails.status }}</span>
+                        </button>
+                    </div>
                 </div>
-            </div>
             {% endif %}
             <div class="card-body">
                 <h4>Ticket Description</h4>
-                {% if ticketDetails%}
-                <p>{{ticketDetails.description}}</p>
+                {% if ticketDetails %}
+                    <p>{{ ticketDetails.description }}</p>
                 {% endif %}
                 <br>
                 <hr>
@@ -85,10 +85,10 @@
                 <button type="button" class="btn btn-primary" onclick="showDiv()" style="margin-bottom: 20px;">Add
                     Ticket Update
                 </button>
-                {% if ticketDetails%}
-                <button type="button" class="btn btn-primary" onclick="deleteTicket('{{ticketDetails.id}}')"
-                        style="margin-bottom: 20px;">Delete Ticket
-                </button>
+                {% if ticketDetails %}
+                    <button type="button" class="btn btn-primary" onclick="deleteTicket('{{ ticketDetails.id }}')"
+                            style="margin-bottom: 20px;">Delete Ticket
+                    </button>
                 {% endif %}
                 <div id="welcomeDiv" style="display:none;" class="answer_list">
                     <form method="POST" action="/tickets">
@@ -98,8 +98,8 @@
                                 <label>Enter Ticket Description</label>
                                 <textarea name="description" placeholder="" rows="4" class="form-control"></textarea>
                             </div>
-                            {% if ticketDetails%}
-                            <input type="hidden" name="id" value={{ticketDetails.id}}>
+                            {% if ticketDetails %}
+                                <input type="hidden" name="id" value={{ ticketDetails.id }}>
                             {% endif %}
                             <input type="hidden" name="_method" value="PUT">
                             <div class="col-md-4">
@@ -120,20 +120,20 @@
                 </div>
                 <h4>Ticket History</h4>
                 <div class="ticket-history">
-                    {% for ticket_his in ticketHistory%}
-                    <div class="card">
-                        {% if ticket_his.status == 'New'%}
-                        <span class="badge bg-danger">{{ticket_his.status}}</span>
-                        {% elif ticket_his.status == 'Closed' %}
-                        <span class="badge bg-success">{{ticket_his.status}}</span>
-                        {% else %}
-                        <span class="badge bg-primary">{{ticket_his.status}}</span>
-                        {% endif %}
-                        <div class="container">
-                            <p>{{ticket_his.remark}}</p>
-                            <span>Updated at {{ticket_his.createdAt}}</span>
+                    {% for ticket_his in ticketHistory %}
+                        <div class="card">
+                            {% if ticket_his.status == 'New' %}
+                                <span class="badge bg-danger">{{ ticket_his.status }}</span>
+                            {% elif ticket_his.status == 'Closed' %}
+                                <span class="badge bg-success">{{ ticket_his.status }}</span>
+                            {% else %}
+                                <span class="badge bg-primary">{{ ticket_his.status }}</span>
+                            {% endif %}
+                            <div class="container">
+                                <p>{{ ticket_his.remark }}</p>
+                                <span>Updated at {{ ticket_his.createdAt }}</span>
+                            </div>
                         </div>
-                    </div>
                     {% endfor %}
                 </div>
             </div>
