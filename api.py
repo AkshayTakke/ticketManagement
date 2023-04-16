@@ -1,4 +1,4 @@
-from controller import loginAPI,logout,homePage
+from controller import loginAPI,logout,homePage,tickets,createTicket,dashboard
 
 
 def routes(api):
