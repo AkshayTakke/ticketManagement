@@ -95,3 +95,29 @@ Run the following command to start the server:</p>
 <p>8. User experience: New users should be able to pick up the system quickly and easily.</p>
 
 <p>In conclusion, a powerful tool for organising projects and monitoring progress is a ticket management system like PRISTO. Business needs including problem tracking, workflow management, customization, integration, reporting, security, and user experience can span a wide range of implementation details.</p>
+
+<h1>Contribution Document</h1>
+
+<p>This document records the valuable contributions made by our PRISTO team members towards the development of this project. Each team member has played a crucial role in making this project a success. Here is a brief summary of their contributions:</p>
+
+<h3>Ved Khetle (10637125)</h3>
+
+<p>Ved is a skilled front-end developer and has worked on the ticket.html and dashboard.html pages. He has implemented the class dashboard in controller.py to handle the back-end functionalities of the dashboard page. Additionally, Ved has contributed to the back-end of the project by adding the dashboard endpoint to api.py. Ved has also contributed to the project by helping Akshay create the README.md file. He has provided valuable inputs on the setup and installation steps, ensuring that the document is user-friendly and easy to understand. Furthermore, Ved has helped to clean up the codebase, ensuring that the code is well-organized, easy to read, and maintainable.</p>
+
+<h3>Ujwala Kabadi (10623727)</h3>
+
+<p>Ujwala has made significant contributions to the back-end of the project. She has implemented the class tickets in controller.py and has created the get tickets API implementation. Furthermore, Ujwala has added the necessary API routes in api.py and has worked on the delete API. She has also contributed to the front-end by working on the ticket-list html page. Ujwala has also worked on the db_config.py file for database connectivity. She has created the necessary database queries to form a database and tables in ticket_mgnt.sql file. These queries have helped to create a well-structured database, which is essential for the smooth functioning of the project.</p>
+
+<h3>Keyur Prajapati (10637122)</h3>
+
+<p>Keyur is an experienced developer and has contributed to the project by working on the login and logout APIs from the front-end that is login.html and the back-end in controller.py. He has ensured the authentication and authorization of users by implementing secure APIs. Furthermore, Keyur has contributed to the front-end development of the project by working on the CSS to improve the visual design and user experience. He has implemented various CSS styles and classes to improve the overall look and feel of the project.</p>
+
+<h3>Akshay Takke (10623725)</h3>
+
+<p>Akshay has played a vital role in defining the project scope, both in and out of scope, and has documented the business requirements. He has also gathered the necessary requirements and has documented the setup and installation steps in the README.md file. Additionally, Akshay has created the project structure and has worked on the controller.py file to create and update a ticket using a single post method. He has also contributed to the front-end by adding the ticket-view.html page. Furthermore, Akshay has created the license.md file, ensuring the open-source and legal compliance of the project.</p>
+
+<p>We appreciate the hard work and dedication of all our team members, and their contributions have helped us achieve our project goals.</p>
+
+<h4>Thank You..</h4>
+
+
