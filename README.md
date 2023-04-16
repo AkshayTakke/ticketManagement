@@ -110,7 +110,7 @@ Run the following command to start the server:</p>
 
 <h3>Keyur Prajapati (10637122)</h3>
 
-<p>Keyur has contributed to the project by working on the login and logout APIs from the front-end that is login.html and the back-end in controller.py. He has ensured the authentication and authorization of users by implementing secure APIs. Furthermore, Keyur has contributed to the front-end development of the project by working on the CSS in style.css to improve the visual design and user experience. He has implemented various CSS styles and classes to improve the overall look and feel of the project.</p>
+<p>Keyur has contributed to the project by working on the login and logout APIs from the front-end that is login.html and the back-end in controller.py and added endpoint to api.py . He has ensured the authentication and authorization of users by implementing secure APIs. Furthermore, Keyur has contributed to the front-end development of the project by working on the CSS in style.css to improve the visual design and user experience. He has implemented various CSS styles and classes to improve the overall look and feel of the project.</p>
 
 <h3>Akshay Takke (10623725)</h3>
 
