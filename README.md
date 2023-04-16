@@ -1,6 +1,6 @@
 <h1>Programming for Information Systems Class Assignment 2</h1>
 
-<h1>IT Ticket Management System - PRIESTO</h1>
+<h1>IT Ticket Management System - PRISTO</h1>
 
 <p>This is a web-based IT ticket management system built using Python Flask framework as the backend, HTML, CSS, and JavaScript/jQuery as the frontend, and MySQL as the database. This system is designed to help IT teams manage and track IT issues reported by users.</p>
 
